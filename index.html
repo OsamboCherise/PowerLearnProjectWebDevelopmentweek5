@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fundamentals</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --text: #333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .code-block {
+            background: var(--dark);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: monospace;
+            line-height: 1.5;
+        }
+
+        .interactive-demo {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: #27ae60;
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+
+        input, select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .output {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            min-height: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript Fundamentals</h1>
+            <p>Exploring variables, conditionals, functions, loops, and DOM interactions</p>
+        </header>
+
+        <!-- Part 1: Variables and Conditionals -->
+        <section class="section">
+            <h2>Part 1: Variables and Conditionals</h2>
+            
+            <div class="code-block">
+                // Variable declarations<br>
+                let userName = "Alice";<br>
+                const userAge = 28;<br>
+                var isStudent = true;<br>
+                let userScore = 85;<br>
+                <br>
+                // Conditional statements<br>
+                if (userScore >= 90) {<br>
+                &nbsp;&nbsp;console.log("Excellent!");<br>
+                } else if (userScore >= 70) {<br>
+                &nbsp;&nbsp;console.log("Good job!");<br>
+                } else {<br>
+                &nbsp;&nbsp;console.log("Keep practicing!");<br>
+                }<br>
+                <br>
+                // Switch statement<br>
+                let grade;<br>
+                switch(true) {<br>
+                &nbsp;&nbsp;case (userScore >= 90):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "A";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;case (userScore >= 80):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "B";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;case (userScore >= 70):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "C";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;default:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "D";<br>
+                }
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Try It Out</h3>
+                <p>Enter your score (0-100):</p>
+                <input type="number" id="scoreInput" min="0" max="100" value="85">
+                <button class="btn" onclick="checkScore()">Check Score</button>
+                <div class="output" id="scoreOutput"></div>
+            </div>
+        </section>
+
+        <!-- Part 2: Functions -->
+        <section class="section">
+            <h2>Part 2: Functions</h2>
+            
+            <div class="code-block">
+                // Function declaration<br>
+                function calculateArea(width, height) {<br>
+                &nbsp;&nbsp;return width * height;<br>
+                }<br>
+                <br>
+                // Function expression<br>
+                const greetUser = function(name) {<br>
+                &nbsp;&nbsp;return `Hello, ${name}! Welcome to our website.`;<br>
+                };<br>
+                <br>
+                // Arrow function<br>
+                const multiply = (a, b) => a * b;<br>
+                <br>
+                // Function with default parameters<br>
+                function createMessage(name, message = "Hello") {<br>
+                &nbsp;&nbsp;return `${message}, ${name}!`;<br>
+                }
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Try It Out</h3>
+                <p>Calculate the area of a rectangle:</p>
+                <input type="number" id="widthInput" placeholder="Width" value="10">
+                <input type="number" id="heightInput" placeholder="Height" value="5">
+                <button class="btn" onclick="calculateArea()">Calculate Area</button>
+                <div class="output" id="areaOutput"></div>
+
+                <p>Get a greeting:</p>
+                <input type="text" id="nameInput" placeholder="Your name" value="Alice">
+                <button class="btn btn-secondary" onclick="greetUser()">Greet Me</button>
+                <div class="output" id="greetingOutput"></div>
+            </div>
+        </section>
+
+        <!-- Part 3: Loops -->
+        <section class="section">
+            <h2>Part 3: Loops</h2>
+            
+            <div class="code-block">
+                // For loop<br>
+                for (let i = 1; i <= 5; i++) {<br>
+                &nbsp;&nbsp;console.log(`Count: ${i}`);<br>
+                }<br>
+                <br>
+                // While loop<br>
+                let count = 1;<br>
+                while (count <= 5) {<br>
+                &nbsp;&nbsp;console.log(`While count: ${count}`);<br>
+                &nbsp;&nbsp;count++;<br>
+                }<br>
+                <br>
+                // Loop through an array<br>
+                const fruits = ["Apple", "Banana", "Orange", "Mango"];<br>
+                for (let i = 0; i < fruits.length; i++) {<br>
+                &nbsp;&nbsp;console.log(fruits[i]);<br>
+                }<br>
+                <br>
+                // forEach method (modern approach)<br>
+                fruits.forEach(fruit => {<br>
+                &nbsp;&nbsp;console.log(fruit);<br>
+                });
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Try It Out</h3>
+                <button class="btn" onclick="runForLoop()">Run For Loop</button>
+                <button class="btn btn-secondary" onclick="runWhileLoop()">Run While Loop</button>
+                <button class="btn btn-accent" onclick="showFruits()">Show Fruits</button>
+                <div class="output" id="loopOutput"></div>
+            </div>
+        </section>
+
+        <!-- Part 4: DOM Interactions -->
+        <section class="section">
+            <h2>Part 4: DOM Interactions</h2>
+            
+            <div class="code-block">
+                // Changing text content<br>
+                document.getElementById("myElement").textContent = "New text";<br>
+                <br>
+                // Changing styles<br>
+                document.getElementById("myElement").style.color = "blue";<br>
+                <br>
+                // Adding and removing classes<br>
+                document.getElementById("myElement").classList.add("highlight");<br>
+                document.getElementById("myElement").classList.remove("old-class");<br>
+                <br>
+                // Handling events<br>
+                document.getElementById("myButton").addEventListener("click", function() {<br>
+                &nbsp;&nbsp;alert("Button clicked!");<br>
+                });<br>
+                <br>
+                // Creating new elements<br>
+                const newElement = document.createElement("div");<br>
+                newElement.textContent = "I'm a new element!";<br>
+                document.body.appendChild(newElement);
+            </div>
+
+            <div class="interactive-demo">
+                <h3>Try It Out</h3>
+                <p>Change the text below:</p>
+                <input type="text" id="textInput" value="This is changeable text">
+                <button class="btn" onclick="changeText()">Change Text</button>
+                <div class="output" id="changeableText">This is changeable text</div>
+
+                <p>Change the color:</p>
+                <select id="colorSelect">
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
+                <button class="btn btn-secondary" onclick="changeColor()">Change Color</button>
+
+                <p>Add an item to the list:</p>
+                <input type="text" id="itemInput" placeholder="New item">
+                <button class="btn btn-accent" onclick="addItem()">Add Item</button>
+                <ul id="itemList">
+                    <li>First item</li>
+                    <li>Second item</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Week 5 Assignment - JavaScript Fundamentals</p>
+            <p>Variables, Conditionals, Functions, Loops, and DOM Interactions</p>
+        </footer>
+    </div>
+
+    <script>
+        // Part 1: Variables and Conditionals
+        function checkScore() {
+            const score = parseInt(document.getElementById('scoreInput').value);
+            let message;
+            
+            if (score >= 90) {
+                message = "Excellent! You got an A!";
+            } else if (score >= 80) {
+                message = "Good job! You got a B!";
+            } else if (score >= 70) {
+                message = "Not bad! You got a C.";
+            } else if (score >= 60) {
+                message = "You passed with a D.";
+            } else {
+                message = "Sorry, you failed. Keep practicing!";
+            }
+            
+            document.getElementById('scoreOutput').textContent = message;
+        }
+
+        // Part 2: Functions
+        function calculateArea() {
+            const width = parseFloat(document.getElementById('widthInput').value);
+            const height = parseFloat(document.getElementById('heightInput').value);
+            
+            // Function to calculate area
+            const area = (width, height) => width * height;
+            
+            document.getElementById('areaOutput').textContent = 
+                `The area is: ${area(width, height)}`;
+        }
+
+        function greetUser() {
+            const name = document.getElementById('nameInput').value;
+            
+            // Function with default parameter
+            const greet = (name, message = "Hello") => `${message}, ${name}!`;
+            
+            document.getElementById('greetingOutput').textContent = greet(name);
+        }
+
+        // Part 3: Loops
+        function runForLoop() {
+            let output = "For loop results:\n";
+            for (let i = 1; i <= 5; i++) {
+                output += `Count: ${i}\n`;
+            }
+            document.getElementById('loopOutput').textContent = output;
+        }
+
+        function runWhileLoop() {
+            let output = "While loop results:\n";
+            let count = 1;
+            while (count <= 5) {
+                output += `While count: ${count}\n`;
+                count++;
+            }
+            document.getElementById('loopOutput').textContent = output;
+        }
+
+        function showFruits() {
+            const fruits = ["Apple", "Banana", "Orange", "Mango"];
+            let output = "Fruits array:\n";
+            
+            // Using forEach method
+            fruits.forEach((fruit, index) => {
+                output += `${index + 1}. ${fruit}\n`;
+            });
+            
+            document.getElementById('loopOutput').textContent = output;
+        }
+
+        // Part 4: DOM Interactions
+        function changeText() {
+            const newText = document.getElementById('textInput').value;
+            document.getElementById('changeableText').textContent = newText;
+        }
+
+        function changeColor() {
+            const color = document.getElementById('colorSelect').value;
+            document.getElementById('changeableText').style.color = color;
+        }
+
+        function addItem() {
+            const newItem = document.getElementById('itemInput').value;
+            if (newItem.trim() !== '') {
+                const li = document.createElement('li');
+                li.textContent = newItem;
+                document.getElementById('itemList').appendChild(li);
+                document.getElementById('itemInput').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
